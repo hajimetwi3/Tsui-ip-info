@@ -9,7 +9,7 @@
 
   Name:        Tsui IP Info
   Author:      Hajime Tsui
-  Version:     1.0.0
+  Version:     1.1.0
 
   ─── License ─────────────────────────────────────────────────────
 
@@ -70,7 +70,9 @@
     <div class="copy-row is-hidden" id="info-copy-row">
       <button class="subtle" id="btn-copy-text" data-i18n="info.btn.copyText">テキストとしてコピー</button>
       <button class="subtle" id="btn-copy-json" data-i18n="info.btn.copyJson">JSONとしてコピー</button>
+      <button class="subtle" id="btn-download-json" data-i18n="info.btn.downloadJson">JSONをダウンロード</button>
     </div>
+    <div class="copy-notice is-hidden" id="info-copy-notice" data-i18n="info.copy.notice">※ 追加調査を実施した場合、その内容もコピー / ダウンロードに含まれます。</div>
   </section>
 
   <section class="section" aria-labelledby="speed-heading">
@@ -84,6 +86,20 @@
 
     <div class="data-card" id="speed-card" aria-live="polite">
       <div class="data-empty" data-i18n="speed.empty">未測定。「スピードテスト実行」ボタンを押してください。</div>
+    </div>
+  </section>
+  
+  <section class="section" aria-labelledby="extra-heading">
+    <h2 class="section-heading" id="extra-heading" data-i18n="extra.heading">追加調査 (FINGERPRINT 詳細)</h2>
+    <p class="section-desc" data-i18n="extra.desc">通常のサイト訪問でも取得可能な、フィンガープリントに使われる代表的な情報です。教育目的での可視化です。</p>
+
+    <div class="action-row">
+      <button id="btn-extra" class="primary" data-i18n="extra.btn.scan">追加調査を実行</button>
+      <span class="status-text" id="extra-status"></span>
+    </div>
+
+    <div class="data-card" id="extra-card" aria-live="polite">
+      <div class="data-empty" data-i18n="extra.empty">未実行。「追加調査を実行」ボタンを押してください。</div>
     </div>
   </section>
 
@@ -106,7 +122,7 @@
     <button class="size-btn" data-size="L"  title="Large">L</button>
     <button class="size-btn" data-size="XL" title="Extra Large">XL</button>
   </div>
-  <span class="version-tag">v1.0.0</span>
+  <span class="version-tag">v1.1.0</span>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -119,7 +135,7 @@
     </div>
     <div class="modal-body">
       <div class="app-name">Tsui IP Info</div>
-      <div class="version-line">Version 1.0.0</div>
+      <div class="version-line">Version 1.1.0</div>
 
       <h3 data-i18n="about.section.about">About</h3>
       <p data-i18n-html="about.section.about.body"><strong>Tsui IP Info</strong> はブラウザで動く、IP アドレス・ASN・地域・接続情報の表示ツールです。Cloudflare Worker と icanhazip から、外部から見える自分の接続情報を取得して表示します。10MB のスピードテスト機能も付属しています。</p>
@@ -127,9 +143,9 @@
       <h3 data-i18n="about.section.endpoints">External requests</h3>
       <p data-i18n="about.section.endpoints.intro">本アプリ本体が通信する外部エンドポイントは以下に限られます。</p>
       <ul class="endpoint-list">
-        <li><code>https://show-ip.hajimetwi3.workers.dev</code> — IP / ASN / geo / network</li>
-        <li><code>https://ipv4.icanhazip.com</code> — IPv4 (raw)</li>
-        <li><code>https://speed.cloudflare.com/__down</code> — speed test</li>
+        <li><code>https://show-ip.hajimetwi3.workers.dev</code> — <span data-i18n="endpoints.worker">IP / ASN / geo / network</span></li>
+        <li><code>https://ipv4.icanhazip.com</code> — <span data-i18n="endpoints.icanhazip">IPv4 (raw, Cloudflare 運営)</span></li>
+        <li><code>https://speed.cloudflare.com/__down</code> — <span data-i18n="endpoints.speed">speed test (Cloudflare)</span></li>
       </ul>
       <p data-i18n="about.section.endpoints.csp">通信先は Content Security Policy の <code>connect-src</code> ディレクティブで上記 3 ホストに限定されています。DevTools の Network タブで実際の通信を確認できます。</p>
 

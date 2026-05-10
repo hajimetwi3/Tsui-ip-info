@@ -308,6 +308,14 @@ main {
   margin-top: 4px;
 }
 
+.copy-notice {
+  margin-top: 6px;
+  color: var(--fg-faint);
+  font-size: calc(10px + var(--ui-font-delta) / 2);
+  line-height: 1.6;
+  font-style: italic;
+}
+
 footer.settings-bar {
   border-top: 1px solid var(--border);
   background: var(--bg-elevated);
@@ -530,6 +538,53 @@ footer.settings-bar {
 .local-notice strong { color: var(--accent); display: block; margin-bottom: 4px; }
 .local-notice a { color: var(--accent); word-break: break-all; }
 .local-notice a:hover { text-decoration: underline; }
+
+.extra-notice {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  color: var(--fg-dim);
+  font-size: calc(10px + var(--ui-font-delta) / 2);
+  line-height: 1.7;
+  font-style: normal;
+}
+.extra-notice p {
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.extra-notice ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+.extra-notice li {
+  margin-bottom: 6px;
+}
+.extra-notice li:last-child {
+  margin-bottom: 0;
+}
+.extra-notice strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+.extra-notice code {
+  background: var(--bg);
+  padding: 0 4px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  color: var(--fg-dim);
+  font-size: 0.95em;
+}
+
+.extra-notice .cite-ref {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.92em;
+  font-style: normal;
+  color: var(--fg-faint);
+  line-height: 1.5;
+  word-break: break-all;
+}
 
 @media (max-width: 540px) {
   main { padding: 24px 16px 48px; }
